@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - Qiming Liu</title>
+    <meta name="description" content="Data Analyst | 数据分析师 | 个人简历展示">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">QL</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link chat-trigger-nav">Chat</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title animate__animated animate__fadeInUp">Qiming Liu / Kiren</h1>
+                <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Data Analyst</p>
+                <p class="hero-description animate__animated animate__fadeInUp animate__delay-2s">
+                    Data Analytics student building practical systems. Learning through iteration and problem-solving. 
+                    Focused on adapting and improving how things work.
+                </p>
+                <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
+                    <a href="Liu Qiming_Resume.pdf?v=2026" download="Liu Qiming_Resume.pdf" class="btn btn-primary">Download Resume</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image animate__animated animate__fadeInRight animate__delay-1s">
+                <div class="image-placeholder photo-slider">
+                    <div class="photo-slide active">
+                        <img src="IMG_3484.JPG" alt="Qiming Liu - Professional" class="profile-photo">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="IMG_6723.JPG" alt="Qiming Liu - Snowboarding" class="profile-photo">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="截屏2026-01-05 01.27.33.png" alt="Qiming Liu - Event" class="profile-photo">
+                    </div>
+                    <button class="photo-nav photo-prev" id="photoPrev" aria-label="Previous photo">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="photo-nav photo-next" id="photoNext" aria-label="Next photo">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">ABOUT ME</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+            <div class="about-content">
+                <p class="about-text">
+                    As a Data Analytics student at Missouri State University, I focus on building practical systems 
+                    that support real operational and decision making needs.
+                </p>
+                <p class="about-text">
+                    I develop my abilities through hands on projects and iterative problem solving, learning how to 
+                    adapt and improve solutions based on real use and feedback.
+                </p>
+                <p class="about-text">
+                    I am seeking internship opportunities where continuous learning, execution, and system improvement 
+                    are essential.
+                </p>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <span>liuqm110@gmail.com</span>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 417 234 8164</span>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Springfield, MO</span>
+                </div>
+                <div class="info-card">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Kiren-67m" target="_blank">github.com/Kiren-67m</a>
+                </div>
+                <div class="info-card">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/qiming-liu-845ba92a0" target="_blank">linkedin.com/in/qiming-liu-845ba92a0</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">EXPERIENCE</span>
+                <h2 class="section-title">Work History</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="timeline-title">Intern, Front Office Operations / Customer Service</h3>
+                        <p class="timeline-company">Chaoyang Bank, Lingyuan Branch</p>
+                        <p class="timeline-date">Feb 2025 – Mar 2025</p>
+                        <ul class="timeline-description">
+                            <li>Assisted 50+ customers per day with routine inquiries and directed them to appropriate services, supporting efficient daily branch operations</li>
+                            <li>Verified customer documentation and account transactions with 100% accuracy, ensuring regulatory compliance and operational reliability</li>
+                            <li>Improved lobby workflow efficiency by coordinating customer flow, reducing average wait times by 15% during peak hours</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Process Optimization</span>
+                            <span class="tag">Customer Service</span>
+                            <span class="tag">Operations Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PROJECTS</span>
+                <h2 class="section-title">Featured Work</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Walmart SQL Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="微信图片_20230111214545.png" alt="Walmart Sales Analysis" class="project-img">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Kiren-67m/walmart-sales-sql-analysis" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Retail Sales SQL Analysis</h3>
+                        <p class="project-description">Analyzed holiday and promotion periods with SQL to quantify revenue uplift across retail campaigns.</p>
+                        <div class="project-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Retail Analytics</span>
+                            <span class="tag">Reporting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Kiren-67m/walmart-sales-sql-analysis" target="_blank" class="project-icon-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2: Automated Ops Monitoring -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="68c0b12b2d8bc8ee878406d9_Group-427319500.webp" alt="Automated Ops Monitoring" class="project-img">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Kiren-67m/automated-daily-ops-monitoring" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Ops Monitoring Pipeline</h3>
+                        <p class="project-description">Built a Python + n8n pipeline that turns raw operations data into daily KPIs and anomaly alerts.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">n8n</span>
+                            <span class="tag">ETL</span>
+                            <span class="tag">Google Sheets</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Kiren-67m/automated-daily-ops-monitoring" target="_blank" class="project-icon-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3: BLACKPINK Spotify Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Blackpink.webp" alt="BLACKPINK Spotify Analysis" class="project-img">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Kiren-67m/BLACKPINK_global_spread_project" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Global Spotify Diffusion</h3>
+                        <p class="project-description">Created an ERR-6 early-retention metric and Streamlit dashboard to study BLACKPINK releases across markets.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Spotify Data</span>
+                            <span class="tag">Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Kiren-67m/BLACKPINK_global_spread_project" target="_blank" class="project-icon-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">SKILLS</span>
+                <h2 class="section-title">Technical Expertise</h2>
+            </div>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3 class="category-title">Programming & Data</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-database skill-icon"></i>
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-level experienced">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python skill-icon"></i>
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js skill-icon"></i>
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">Analytics & BI Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-file-excel skill-icon"></i>
+                            <span class="skill-name">Excel</span>
+                            <span class="skill-level experienced">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar skill-icon"></i>
+                            <span class="skill-name">Power BI</span>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-pie skill-icon"></i>
+                            <span class="skill-name">IBM Cognos Analytics</span>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line skill-icon"></i>
+                            <span class="skill-name">RStudio</span>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cogs skill-icon"></i>
+                            <span class="skill-name">Automation Tools</span>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="contact-title">Let's Work Together</h2>
+            <p class="contact-subtitle">Have a project in mind? I'd love to hear about it.</p>
+            <div class="contact-icons">
+                <a href="mailto:liuqm110@gmail.com" class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/qiming-liu-845ba92a0" target="_blank" class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Kiren-67m" target="_blank" class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 Qiming Liu. All rights reserved.</p>
+            <p class="footer-text">Made with <span class="heart">❤️</span> and Coffee</p>
+        </div>
+    </footer>
+
+    <!-- AI Chat Button (Floating) -->
+    <button class="chat-button" id="chatButton" title="Ask AI about me">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- AI Chat Panel -->
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <button class="chat-back" id="chatBack">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="chat-header-content">
+                <h3>Chat with AI</h3>
+                <p>Ask me anything</p>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Hi! 👋 I'm an AI assistant that knows all about Qiming Liu.</p>
+                    <p>Feel free to ask me about:</p>
+                    <ul>
+                        <li>Work experience and projects</li>
+                        <li>Technical skills and expertise</li>
+                        <li>Education and background</li>
+                        <li>Contact information</li>
+                    </ul>
+                    <p>What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-quick-questions">
+            <button class="quick-question">What is your work experience?</button>
+            <button class="quick-question">What skills do you use most?</button>
+            <button class="quick-question">Tell me about your projects.</button>
+            <button class="quick-question">How can I contact you?</button>
+        </div>
+        <div class="chat-input-container">
+            <textarea 
+                id="chatInput" 
+                class="chat-input" 
+                placeholder="Type your message..."
+                rows="1"
+            ></textarea>
+            <button class="chat-send" id="chatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <div class="chat-overlay" id="chatOverlay"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
