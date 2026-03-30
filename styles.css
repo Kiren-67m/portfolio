@@ -439,6 +439,19 @@ section {
     background: var(--color-light-bg);
 }
 
+.subsection-title {
+    max-width: 900px;
+    margin: 0 auto 25px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: 0.2px;
+}
+
+.subsection-title + .timeline {
+    margin-bottom: 70px;
+}
+
 .timeline {
     position: relative;
     max-width: 900px;
@@ -568,6 +581,72 @@ section {
     border-radius: 20px;
     font-size: 14px;
     color: var(--color-dark-gray);
+}
+
+/* Experience media slider (AITCC) */
+.experience-media {
+    margin-top: 22px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.experience-slider {
+    width: 420px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--color-light-bg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.experience-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.experience-slide.active {
+    opacity: 1;
+}
+
+.experience-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.experience-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.42);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.experience-prev {
+    left: 12px;
+}
+
+.experience-next {
+    right: 12px;
+}
+
+.experience-nav:hover {
+    background: rgba(0, 0, 0, 0.62);
+    transform: translateY(-50%) scale(1.05);
 }
 
 /* ============================================
@@ -703,6 +782,65 @@ section {
     color: var(--color-accent);
 }
 
+/* Certificates (below Projects) */
+.section-header-compact {
+    margin-top: 90px;
+    margin-bottom: 35px;
+}
+
+.section-title-compact {
+    font-size: 30px;
+}
+
+.certificates {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.certificate-card {
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 26px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.certificate-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 6px;
+}
+
+.certificate-date {
+    font-size: 14px;
+    color: var(--color-light-gray);
+    margin-bottom: 10px;
+}
+
+.certificate-description {
+    font-size: 14px;
+    color: var(--color-dark-gray);
+    line-height: 1.65;
+}
+
+.certificate-media {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.certificate-image {
+    display: block;
+    width: min(900px, 100%);
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+}
+
 /* ============================================
    Skills Section
    ============================================ */
@@ -730,22 +868,24 @@ section {
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
 }
 
 .skill-item {
     background: var(--color-bg-white);
-    padding: 25px;
+    padding: 14px 16px;
     border-radius: 8px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     transition: all 0.3s ease;
     opacity: 0;
     transform: scale(0.9);
+    width: auto;
 }
 
 .skill-item.visible {
@@ -759,7 +899,7 @@ section {
 }
 
 .skill-icon {
-    font-size: 40px;
+    font-size: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -778,6 +918,7 @@ section {
     padding: 4px 12px;
     border-radius: 20px;
     font-weight: 500;
+    margin-left: auto;
 }
 
 .skill-level.experienced {
@@ -1266,7 +1407,7 @@ section {
     }
 
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        justify-content: flex-start;
     }
 
     .contact-title {

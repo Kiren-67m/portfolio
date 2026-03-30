@@ -117,6 +117,37 @@ document.querySelectorAll('.skill-item').forEach(item => {
 });
 
 // ============================================
+// Experience sliders (AITCC)
+// ============================================
+
+function initExperienceSliders() {
+    const sliders = document.querySelectorAll('.experience-slider[data-slider]');
+    sliders.forEach(slider => {
+        const sliderId = slider.getAttribute('data-slider');
+        const slides = slider.querySelectorAll('.experience-slide');
+        const prev = document.querySelector(`[data-slider-prev="${sliderId}"]`);
+        const next = document.querySelector(`[data-slider-next="${sliderId}"]`);
+        let current = 0;
+
+        function show(index) {
+            if (!slides.length) return;
+            slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        }
+
+        function go(delta) {
+            if (!slides.length) return;
+            current = (current + delta + slides.length) % slides.length;
+            show(current);
+        }
+
+        if (prev) prev.addEventListener('click', () => go(-1));
+        if (next) next.addEventListener('click', () => go(1));
+
+        show(current);
+    });
+}
+
+// ============================================
 // AI Chat Interface
 // ============================================
 
@@ -306,15 +337,24 @@ const knowledgeBase = {
     linkedin: "linkedin.com/in/qiming-liu-845ba92a0",
     education: "Missouri State University",
     skills: {
-        programming: ["SQL (Advanced)", "Python (Intermediate)", "JavaScript (Intermediate)"],
-        tools: ["Excel (Advanced)", "Power BI (Intermediate)", "IBM Cognos Analytics (Intermediate)", "RStudio (Intermediate)", "Automation Tools (Intermediate)"]
+        programming: ["Python (Advanced)", "SQL (Advanced)", "R (Advanced)", "JavaScript (Intermediate)"],
+        tools: ["Excel (Advanced)", "Power BI (Intermediate)", "n8n (Beginner)"],
+        statistical: ["JASP (Intermediate)"]
     },
     experience: [
         {
-            title: "Intern, Front Office Operations / Customer Service",
-            company: "Chaoyang Bank, Lingyuan Branch",
+            title: "Intern – Front Office Operations",
+            company: "Bank of Chaoyang | Liaoning, China",
             period: "Feb 2025 – Mar 2025",
-            description: "Assisted 50+ customers per day with routine inquiries, verified customer documentation with 100% accuracy, improved lobby workflow efficiency by reducing wait times by 15%"
+            description: "Identified a customer flow bottleneck and recommended a queue redesign that reduced peak-hour wait times by 15%; managed and triaged 50+ daily requests and analyzed trends to inform staffing coverage; reviewed documentation and transaction records to maintain compliance and reduce downstream errors."
+        }
+    ],
+    competitions: [
+        {
+            title: "America's Innovate IT Collegiate Conference (AITCC) — Analyze IT Challenge | 2nd Place",
+            project: "Loan Default Prediction",
+            period: "Mar 2026",
+            description: "Cleaned and joined 3 relational tables (70K borrowers, 180K loans, 627K payment records) in Python; engineered repayment behavior features; trained classification (AUC 0.96) and regression (R² 0.62) models; delivered a 12-slide report with risk monitoring recommendations."
         }
     ],
     projects: [
@@ -333,6 +373,13 @@ const knowledgeBase = {
             description: "ERR-6 early-retention metric and Streamlit dashboard for global Spotify release diffusion analysis.",
             tech: ["Python", "Streamlit", "Spotify Data"]
         }
+    ],
+    certificates: [
+        {
+            name: "IBM Data Analyst Professional Certificate",
+            date: "Dec 30, 2025",
+            description: "Executed end to end analytical workflows using Python, SQL, Excel, AI assisted analysis, and data visualization tools to cleanse, interrogate, and synthesize real world datasets into dashboards and decision ready insights."
+        }
     ]
 };
 
@@ -348,17 +395,27 @@ async function getAIResponse(userMessage) {
     
     // Intent detection and response generation
     if (lowerMessage.includes('技能') || lowerMessage.includes('技术') || lowerMessage.includes('skill') || lowerMessage.includes('tech')) {
-        response = `Here are the main skills I use:\n\n<strong>Programming & Data:</strong>\n• SQL (Advanced)\n• Python (Intermediate)\n• JavaScript (Intermediate)\n\n<strong>Analytics & BI Tools:</strong>\n• Excel (Advanced)\n• Power BI (Intermediate)\n• IBM Cognos Analytics (Intermediate)\n• RStudio (Intermediate)\n• Automation Tools (Intermediate)\n\nI'm studying Data Analytics at Missouri State University and building these skills through hands-on projects.`;
+        response = `Here are the main skills I use:\n\n<strong>Programming:</strong>\n• ${knowledgeBase.skills.programming.join('\n• ')}\n\n<strong>Analytics & BI Tools:</strong>\n• ${knowledgeBase.skills.tools.join('\n• ')}\n\n<strong>Statistical Tools:</strong>\n• ${knowledgeBase.skills.statistical.join('\n• ')}\n\nI'm studying Data Analytics at Missouri State University and building these skills through hands-on projects.`;
     } 
     else if (lowerMessage.includes('经验') || lowerMessage.includes('工作') || lowerMessage.includes('experience') || lowerMessage.includes('work')) {
         response = `Here is my work experience:\n\n${knowledgeBase.experience.map(exp => 
             `<strong>${exp.title}</strong> @ ${exp.company}\n${exp.period}\n${exp.description}`
-        ).join('\n\n')}\n\nYou can ask me for more details about specific responsibilities or outcomes.`;
+        ).join('\n\n')}\n\nYou can also ask about competitions / awards if you'd like.`;
+    }
+    else if (lowerMessage.includes('比赛') || lowerMessage.includes('award') || lowerMessage.includes('competition') || lowerMessage.includes('aitcc')) {
+        response = `Here are my competitions / awards:\n\n${knowledgeBase.competitions.map(item =>
+            `<strong>${item.title}</strong>\n${item.period}\n${item.project}\n${item.description}`
+        ).join('\n\n')}\n\nIf you'd like, I can share the modeling and feature engineering details.`;
     }
     else if (lowerMessage.includes('项目') || lowerMessage.includes('project') || lowerMessage.includes('作品')) {
         response = `Here are some of my key projects:\n\n${knowledgeBase.projects.map(proj => 
             `<strong>${proj.name}</strong>\n${proj.description}\nTech stack: ${proj.tech.join(', ')}`
         ).join('\n\n')}\n\nFeel free to ask about any project you're most interested in.`;
+    }
+    else if (lowerMessage.includes('证书') || lowerMessage.includes('certificate') || lowerMessage.includes('certification')) {
+        response = `Here are my certificates:\n\n${knowledgeBase.certificates.map(cert =>
+            `<strong>${cert.name}</strong>\n${cert.date}\n${cert.description}`
+        ).join('\n\n')}\n\nIf you'd like, I can also walk through what I learned and how I apply it.`;
     }
     else if (lowerMessage.includes('联系') || lowerMessage.includes('contact') || lowerMessage.includes('邮箱') || lowerMessage.includes('email')) {
         response = `I'd be happy to connect!\n\n<strong>Contact details:</strong>\n• 📧 Email: ${knowledgeBase.email}\n• 📱 Phone: ${knowledgeBase.phone}\n• 💼 LinkedIn: ${knowledgeBase.linkedin}\n• 💻 GitHub: ${knowledgeBase.github}\n\nYou can also use the contact icons at the bottom of this site.`;
@@ -434,4 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showSlide(currentSlide);
         });
     }
+
+    // Experience sliders (e.g., AITCC)
+    initExperienceSliders();
 });
