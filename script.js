@@ -359,6 +359,13 @@ const knowledgeBase = {
     ],
     projects: [
         {
+            name: "Loan Portfolio Risk Monitor",
+            description: "End-to-end operational risk system extending the AITCC 2026 loan default pipeline — 180K loans, tiered risk segmentation, Tableau dashboard, and Claude-generated monthly executive reports (AUC 0.963, R² 0.787, F1 0.909).",
+            tech: ["Python", "scikit-learn", "XGBoost", "Tableau", "Claude API", "Machine Learning"],
+            live: "https://kiren-67m.github.io/loan-risk-monitor",
+            github: "https://github.com/Kiren-67m/loan-risk-monitor"
+        },
+        {
             name: "Retail Sales SQL Analysis",
             description: "Holiday and promotion SQL analysis for Walmart-style retail data, focusing on revenue uplift patterns.",
             tech: ["SQL", "MySQL", "Retail Analytics"]
@@ -407,10 +414,11 @@ async function getAIResponse(userMessage) {
             `<strong>${item.title}</strong>\n${item.period}\n${item.project}\n${item.description}`
         ).join('\n\n')}\n\nIf you'd like, I can share the modeling and feature engineering details.`;
     }
-    else if (lowerMessage.includes('项目') || lowerMessage.includes('project') || lowerMessage.includes('作品')) {
-        response = `Here are some of my key projects:\n\n${knowledgeBase.projects.map(proj => 
-            `<strong>${proj.name}</strong>\n${proj.description}\nTech stack: ${proj.tech.join(', ')}`
-        ).join('\n\n')}\n\nFeel free to ask about any project you're most interested in.`;
+    else if (lowerMessage.includes('项目') || lowerMessage.includes('project') || lowerMessage.includes('作品') || lowerMessage.includes('loan') || lowerMessage.includes('risk monitor')) {
+        response = `Here are some of my key projects:\n\n${knowledgeBase.projects.map(proj => {
+            const links = [proj.live ? `Live: ${proj.live}` : null, proj.github ? `GitHub: ${proj.github}` : null].filter(Boolean).join(' · ');
+            return `<strong>${proj.name}</strong>\n${proj.description}\nTech: ${proj.tech.join(', ')}${links ? `\n${links}` : ''}`;
+        }).join('\n\n')}\n\nThe Loan Portfolio Risk Monitor is my most end-to-end build — ask if you want modeling, KPI, or AI reporting details.`;
     }
     else if (lowerMessage.includes('证书') || lowerMessage.includes('certificate') || lowerMessage.includes('certification')) {
         response = `Here are my certificates:\n\n${knowledgeBase.certificates.map(cert =>
