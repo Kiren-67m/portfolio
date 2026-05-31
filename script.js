@@ -360,7 +360,7 @@ const knowledgeBase = {
     projects: [
         {
             name: "Loan Portfolio Risk Monitor",
-            description: "End-to-end operational risk system extending the AITCC 2026 loan default pipeline — 180K loans, tiered risk segmentation, Tableau dashboard, and Claude-generated monthly executive reports (AUC 0.963, R² 0.787, F1 0.909).",
+            description: "Extended the AITCC loan default pipeline into an operational risk monitor with tiered alerts, Tableau drill-down, and Claude-generated monthly reports (180K loans, AUC 0.96).",
             tech: ["Python", "scikit-learn", "XGBoost", "Tableau", "Claude API", "Machine Learning"],
             live: "https://kiren-67m.github.io/loan-risk-monitor",
             github: "https://github.com/Kiren-67m/loan-risk-monitor"
