@@ -543,6 +543,20 @@ section {
     margin-bottom: 5px;
 }
 
+.company-link {
+    color: var(--color-accent);
+    margin-left: 6px;
+    font-size: 13px;
+    opacity: 0.65;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.company-link:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
 .timeline-date {
     font-size: 14px;
     color: var(--color-light-gray);

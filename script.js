@@ -343,6 +343,12 @@ const knowledgeBase = {
     },
     experience: [
         {
+            title: "Intern – AI Engineer",
+            company: "OriLoan Financial Inc. (oriloan.com)",
+            period: "Aug 2026 – Present",
+            description: "Engineered an automated pricing-ingestion and reconciliation platform covering 5 mortgage lenders across 5 heterogeneous portal architectures; reverse-engineered undocumented off-sheet pricing into a deterministic model, raising accuracy from 44.6% to 99.8% (cross-validated over 19,498 rate points); gated all 5 lenders in automated CI regression; and launched a hardened public pricing API on AWS."
+        },
+        {
             title: "Intern – Front Office Operations",
             company: "Bank of Chaoyang | Liaoning, China",
             period: "Feb 2025 – Mar 2025",
@@ -429,7 +435,7 @@ async function getAIResponse(userMessage) {
         response = `I'd be happy to connect!\n\n<strong>Contact details:</strong>\n• 📧 Email: ${knowledgeBase.email}\n• 📱 Phone: ${knowledgeBase.phone}\n• 💼 LinkedIn: ${knowledgeBase.linkedin}\n• 💻 GitHub: ${knowledgeBase.github}\n\nYou can also use the contact icons at the bottom of this site.`;
     }
     else if (lowerMessage.includes('教育') || lowerMessage.includes('education') || lowerMessage.includes('背景') || lowerMessage.includes('background')) {
-        response = `I'm a ${knowledgeBase.profession} student at ${knowledgeBase.education}, based in ${knowledgeBase.location}.\n\nI focus on building practical systems that support real operational and decision-making needs. I learn through iterative problem-solving and improving solutions based on real-world feedback.\n\nI'm currently looking for internship opportunities where continuous learning, execution, and system improvement are important.`;
+        response = `I'm a ${knowledgeBase.profession} student at ${knowledgeBase.education}, based in ${knowledgeBase.location}.\n\nI turn messy, real-world data into systems people can rely on — working end to end from cleaning and modeling to shipping something measurable and dependable.\n\nI'm currently open to internship and full-time opportunities where execution and continuous improvement matter.`;
     }
     else if (lowerMessage.includes('名字') || lowerMessage.includes('name') || lowerMessage.includes('who')) {
         response = `Hi! I'm ${knowledgeBase.name}, a ${knowledgeBase.profession} student.\n\nI'm studying Data Analytics at ${knowledgeBase.education} and love building practical, data-driven systems. You can ask me about my skills, experience, or projects.`;
