@@ -346,10 +346,7 @@ const knowledgeBase = {
             title: "Intern – AI Engineer",
             company: "OriLoan Financial Inc. (oriloan.com)",
             period: "Aug 2026 – Present",
-            description: "Engineered an automated pricing-ingestion and reconciliation platform covering 5 mortgage lenders across 5 heterogeneous portal architectures; reverse-engineered undocumented off-sheet pricing into a deterministic model, raising accuracy from 44.6% to 99.8% (cross-validated over 19,498 rate points); gated all 5 lenders in automated CI regression; and launched a hardened public pricing API on AWS."
-        },
-        {
-            title: "Intern – Front Office Operations",
+            description: "Engineered an automated pricing ingestion and reconciliation platform covering 6 mortgage lenders across 5 heterogeneous portal architectures (REST API, replayable HTTP, ASP.NET WebForms, Blazor/SignalR, JSF), replacing manual rate sheet processing with a workflow that validated quotes against each lender’s official pricing engine. Reverse-engineered the lender’s undocumented pricing rules into a deterministic model with no fitted parameters, raising pricing accuracy from 44.6% to 100% across 12,000 tested rate points and resolving a key blocker to launching a consumer rate product. Implemented k-fold cross-validation across pricing scenarios and gated all 6 lenders in automated CI regression, ensuring pricing accuracy is continuously verified and protected from production regressions. Hardened a public pricing API with rate limits for each caller, input validation and CloudWatch monitoring. Accelerated delivery by directing AI coding agents to build importers, run pricing sweeps at scale and analyze residuals.",
             company: "Bank of Chaoyang | Liaoning, China",
             period: "Feb 2025 – Mar 2025",
             description: "Identified a customer flow bottleneck and recommended a queue redesign that reduced peak-hour wait times by 15%; managed and triaged 50+ daily requests and analyzed trends to inform staffing coverage; reviewed documentation and transaction records to maintain compliance and reduce downstream errors."
@@ -509,3 +506,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Experience sliders (e.g., AITCC)
     initExperienceSliders();
 });
+
