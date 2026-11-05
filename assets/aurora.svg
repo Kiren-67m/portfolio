@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Flowing green, white and blue light</title>
+  <desc id="desc">White background with flowing deep green, teal, mint, white, light blue, blue-violet and indigo light, and a translucent window with red, yellow and green controls. Qiming Liu. AI &amp; data, built for real work. Thinking in systems. Building around people. Open to opportunities.</desc>
+  <defs>
+    <linearGradient id="base" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#f9fbff"/></linearGradient>
+    <linearGradient id="edge" x2="1" y2="1"><stop stop-color="#dae5ef"/><stop offset=".5" stop-color="#dce8f3" stop-opacity=".3"/><stop offset="1" stop-color="#c9d6ee"/></linearGradient>
+    <radialGradient id="halo-green"><stop stop-color="#078d70" stop-opacity=".34"/><stop offset=".45" stop-color="#078d70" stop-opacity="0.245"/><stop offset="1" stop-color="#078d70" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo-teal"><stop stop-color="#26ceaa" stop-opacity=".48"/><stop offset=".45" stop-color="#26ceaa" stop-opacity="0.346"/><stop offset="1" stop-color="#26ceaa" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo-mint"><stop stop-color="#98e8c1" stop-opacity=".85"/><stop offset=".45" stop-color="#98e8c1" stop-opacity="0.612"/><stop offset="1" stop-color="#98e8c1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo-white"><stop stop-color="#ffffff" stop-opacity="1"/><stop offset=".45" stop-color="#ffffff" stop-opacity="0.720"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo-blue"><stop stop-color="#7bade2" stop-opacity=".72"/><stop offset=".45" stop-color="#7bade2" stop-opacity="0.518"/><stop offset="1" stop-color="#7bade2" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo-violet"><stop stop-color="#5049cc" stop-opacity=".33"/><stop offset=".45" stop-color="#5049cc" stop-opacity="0.238"/><stop offset="1" stop-color="#5049cc" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo-indigo"><stop stop-color="#3d1a78" stop-opacity=".24"/><stop offset=".45" stop-color="#3d1a78" stop-opacity="0.173"/><stop offset="1" stop-color="#3d1a78" stop-opacity="0"/></radialGradient>
+    <linearGradient id="flow-spectrum" x1="0" y1=".5" x2="1" y2=".5"><stop stop-color="#078d70" stop-opacity="0"/><stop offset=".12" stop-color="#078d70" stop-opacity=".3"/><stop offset=".27" stop-color="#26ceaa" stop-opacity=".45"/><stop offset=".39" stop-color="#98e8c1" stop-opacity=".8"/><stop offset=".51" stop-color="#ffffff"/><stop offset=".64" stop-color="#7bade2" stop-opacity=".65"/><stop offset=".79" stop-color="#5049cc" stop-opacity=".3"/><stop offset=".94" stop-color="#3d1a78" stop-opacity=".22"/><stop offset="1" stop-color="#3d1a78" stop-opacity="0"/></linearGradient>
+    <filter id="flow-soft" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="23"/></filter>
+    <filter id="halo-soft" x="-25%" y="-35%" width="150%" height="170%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="white-soft" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="15"/></filter>
+    <clipPath id="clip"><rect width="1200" height="420" rx="22"/></clipPath>
+  </defs>
+  <style>
+    .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .float-a{animation:float-a 13s ease-in-out infinite alternate}
+    .float-b{animation:float-b 17s ease-in-out infinite alternate}
+    .float-c{animation:float-c 15s ease-in-out infinite alternate}
+    @keyframes float-a{from{transform:translate(-17px,15px)}to{transform:translate(21px,-18px)}}
+    @keyframes float-b{from{transform:translate(18px,-14px)}to{transform:translate(-21px,19px)}}
+    @keyframes float-c{from{transform:translate(-13px,-17px)}to{transform:translate(17px,18px)}}
+    .spark{animation:shimmer 3.8s ease-in-out infinite}
+    .cursor{animation:blink 1.4s steps(1) infinite}
+    @keyframes shimmer{0%,100%{opacity:.12}50%{opacity:.85}}
+    @keyframes blink{50%{opacity:0}}
+    @media(prefers-reduced-motion:reduce){.float-a,.float-b,.float-c,.spark,.cursor{animation:none}}
+  </style>
+  <g clip-path="url(#clip)">
+    <rect width="1200" height="420" fill="url(#base)"/>
+    <g filter="url(#halo-soft)" opacity=".5">
+      <ellipse class="float-a" cx="573" cy="245" rx="150" ry="117" fill="url(#halo-green)"/>
+      <ellipse class="float-b" cx="661" cy="164" rx="155" ry="143" fill="url(#halo-teal)"/>
+      <ellipse class="float-c" cx="794" cy="87" rx="163" ry="107" fill="url(#halo-mint)"/>
+      <ellipse class="float-a" cx="874" cy="312" rx="155" ry="112" fill="url(#halo-blue)"/>
+      <ellipse class="float-b" cx="1002" cy="310" rx="163" ry="126" fill="url(#halo-violet)"/>
+      <ellipse class="float-c" cx="1122" cy="127" rx="153" ry="142" fill="url(#halo-indigo)"/>
+      <ellipse class="float-b" cx="764" cy="246" rx="142" ry="83" fill="url(#halo-white)"/>
+    </g>
+    <path d="M380 370C550 370 610 85 800 130S1050 370 1280 140" fill="none" stroke="url(#flow-spectrum)" stroke-width="138" filter="url(#flow-soft)">
+      <animate attributeName="d" dur="14s" repeatCount="indefinite" values="M380 370C550 370 610 85 800 130S1050 370 1280 140;M380 305C550 135 650 370 840 239S1100 40 1280 170;M380 370C550 370 610 85 800 130S1050 370 1280 140"/>
+    </path>
+    <path d="M532 314C661 330 678 174 820 203S1020 309 1238 189" fill="none" stroke="white" stroke-opacity=".78" stroke-width="36" filter="url(#white-soft)">
+      <animate attributeName="d" dur="14s" repeatCount="indefinite" values="M532 314C661 330 678 174 820 203S1020 309 1238 189;M532 286C661 186 678 291 820 240S1020 151 1238 218;M532 314C661 330 678 174 820 203S1020 309 1238 189"/>
+    </path>
+    <path d="M534 333C670 290 680 157 840 202S1060 302 1215 183" fill="none" stroke="white" stroke-opacity=".64" stroke-width="1.5">
+      <animate attributeName="d" dur="14s" repeatCount="indefinite" values="M534 333C670 290 680 157 840 202S1060 302 1215 183;M534 284C670 169 680 298 840 248S1060 137 1215 215;M534 333C670 290 680 157 840 202S1060 302 1215 183"/>
+    </path>
+  </g>
+</svg>
