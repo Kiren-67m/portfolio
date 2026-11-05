@@ -59,7 +59,9 @@ function updateActiveNavLink() {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
         if (target) {
             const offsetTop = target.offsetTop - 80;
             window.scrollTo({
@@ -329,7 +331,7 @@ function scrollToBottom() {
 // Knowledge base about the person
 const knowledgeBase = {
     name: "Qiming Liu / Kiren",
-    profession: "Data Analyst",
+    profession: "AI Engineering Intern",
     location: "Springfield, MO",
     email: "liuqm110@gmail.com",
     phone: "+1 417 234 8164",
@@ -347,6 +349,9 @@ const knowledgeBase = {
             company: "OriLoan Financial Inc. (oriloan.com)",
             period: "Aug 2026 – Present",
             description: "Engineered an automated pricing ingestion and reconciliation platform covering 6 mortgage lenders across 5 heterogeneous portal architectures (REST API, replayable HTTP, ASP.NET WebForms, Blazor/SignalR, JSF), replacing manual rate sheet processing with a workflow that validated quotes against each lender’s official pricing engine. Reverse-engineered the lender’s undocumented pricing rules into a deterministic model with no fitted parameters, raising pricing accuracy from 44.6% to 100% across 12,000 tested rate points and resolving a key blocker to launching a consumer rate product. Implemented k-fold cross-validation across pricing scenarios and gated all 6 lenders in automated CI regression, ensuring pricing accuracy is continuously verified and protected from production regressions. Hardened a public pricing API with rate limits for each caller, input validation and CloudWatch monitoring. Accelerated delivery by directing AI coding agents to build importers, run pricing sweeps at scale and analyze residuals.",
+        },
+        {
+            title: "Intern – Front Office Operations",
             company: "Bank of Chaoyang | Liaoning, China",
             period: "Feb 2025 – Mar 2025",
             description: "Identified a customer flow bottleneck and recommended a queue redesign that reduced peak-hour wait times by 15%; managed and triaged 50+ daily requests and analyzed trends to inform staffing coverage; reviewed documentation and transaction records to maintain compliance and reduce downstream errors."
@@ -357,13 +362,13 @@ const knowledgeBase = {
             title: "America's Innovate IT Collegiate Conference (AITCC) — Analyze IT Challenge | 2nd Place",
             project: "Loan Default Prediction",
             period: "Mar 2026",
-            description: "Cleaned and joined 3 relational tables (70K borrowers, 180K loans, 627K payment records) in Python; engineered repayment behavior features; trained classification (AUC 0.96) and regression (R² 0.62) models; delivered a 12-slide report with risk monitoring recommendations."
+            description: "Cleaned and joined 3 relational tables (70K borrowers, 180K loans, 627K payment records) in Python; engineered repayment behavior features; trained classification (AUC 0.96) and regression (R² 0.79) models; delivered a 12-slide report with risk monitoring recommendations."
         }
     ],
     projects: [
         {
             name: "Loan Portfolio Risk Monitor",
-            description: "Extended the AITCC loan default pipeline into an operational risk monitor with tiered alerts, Tableau drill-down, and Claude-generated monthly reports (180K loans, AUC 0.96).",
+            description: "Extended the AITCC loan default pipeline into a portfolio monitoring prototype with risk segmentation, Tableau views and Claude-generated monthly reports.",
             tech: ["Python", "scikit-learn", "XGBoost", "Tableau", "Claude API", "Machine Learning"],
             live: "https://kiren-67m.github.io/loan-risk-monitor",
             github: "https://github.com/Kiren-67m/loan-risk-monitor"
@@ -405,7 +410,7 @@ async function getAIResponse(userMessage) {
     
     // Intent detection and response generation
     if (lowerMessage.includes('技能') || lowerMessage.includes('技术') || lowerMessage.includes('skill') || lowerMessage.includes('tech')) {
-        response = `Here are the main skills I use:\n\n<strong>Programming:</strong>\n• ${knowledgeBase.skills.programming.join('\n• ')}\n\n<strong>Analytics & BI Tools:</strong>\n• ${knowledgeBase.skills.tools.join('\n• ')}\n\n<strong>Statistical Tools:</strong>\n• ${knowledgeBase.skills.statistical.join('\n• ')}\n\nI'm studying Data Analytics at Missouri State University and building these skills through hands-on projects.`;
+        response = `Here are the main skills I use:\n\n<strong>Programming:</strong>\n• ${knowledgeBase.skills.programming.join('\n• ')}\n\n<strong>Analytics & BI Tools:</strong>\n• ${knowledgeBase.skills.tools.join('\n• ')}\n\n<strong>Statistical Tools:</strong>\n• ${knowledgeBase.skills.statistical.join('\n• ')}\n\nI'm studying Data Analytics at Missouri State University and applying these skills through my work and hands-on projects.`;
     } 
     else if (lowerMessage.includes('经验') || lowerMessage.includes('工作') || lowerMessage.includes('experience') || lowerMessage.includes('work')) {
         response = `Here is my work experience:\n\n${knowledgeBase.experience.map(exp => 
@@ -421,7 +426,7 @@ async function getAIResponse(userMessage) {
         response = `Here are some of my key projects:\n\n${knowledgeBase.projects.map(proj => {
             const links = [proj.live ? `Live: ${proj.live}` : null, proj.github ? `GitHub: ${proj.github}` : null].filter(Boolean).join(' · ');
             return `<strong>${proj.name}</strong>\n${proj.description}\nTech: ${proj.tech.join(', ')}${links ? `\n${links}` : ''}`;
-        }).join('\n\n')}\n\nThe Loan Portfolio Risk Monitor is my most end-to-end build — ask if you want modeling, KPI, or AI reporting details.`;
+        }).join('\n\n')}\n\nThe Loan Portfolio Risk Monitor connects modeling, KPI summaries and AI-assisted reporting in an exploratory prototype.`;
     }
     else if (lowerMessage.includes('证书') || lowerMessage.includes('certificate') || lowerMessage.includes('certification')) {
         response = `Here are my certificates:\n\n${knowledgeBase.certificates.map(cert =>
@@ -432,13 +437,13 @@ async function getAIResponse(userMessage) {
         response = `I'd be happy to connect!\n\n<strong>Contact details:</strong>\n• 📧 Email: ${knowledgeBase.email}\n• 📱 Phone: ${knowledgeBase.phone}\n• 💼 LinkedIn: ${knowledgeBase.linkedin}\n• 💻 GitHub: ${knowledgeBase.github}\n\nYou can also use the contact icons at the bottom of this site.`;
     }
     else if (lowerMessage.includes('教育') || lowerMessage.includes('education') || lowerMessage.includes('背景') || lowerMessage.includes('background')) {
-        response = `I'm a ${knowledgeBase.profession} student at ${knowledgeBase.education}, based in ${knowledgeBase.location}.\n\nI turn messy, real-world data into systems people can rely on — working end to end from cleaning and modeling to shipping something measurable and dependable.\n\nI'm currently open to internship and full-time opportunities where execution and continuous improvement matter.`;
+        response = `I'm studying Data Analytics at ${knowledgeBase.education}, based in ${knowledgeBase.location}, and currently working as an AI Engineering Intern at OriLoan Financial Inc.\n\nI turn messy, real-world data into systems people can rely on — working end to end from cleaning and modeling to shipping something measurable and dependable.\n\nI'm currently open to internship and full-time opportunities where execution and continuous improvement matter.`;
     }
     else if (lowerMessage.includes('名字') || lowerMessage.includes('name') || lowerMessage.includes('who')) {
-        response = `Hi! I'm ${knowledgeBase.name}, a ${knowledgeBase.profession} student.\n\nI'm studying Data Analytics at ${knowledgeBase.education} and love building practical, data-driven systems. You can ask me about my skills, experience, or projects.`;
+        response = `Hi! I'm ${knowledgeBase.name}, an ${knowledgeBase.profession}.\n\nI'm studying Data Analytics at ${knowledgeBase.education} and love building practical, data-driven systems. You can ask me about my skills, experience, or projects.`;
     }
     else if (lowerMessage.includes('你好') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-        response = `Hi there! 👋 Great to meet you.\n\nI'm an AI assistant that knows about ${knowledgeBase.name}. I can tell you about:\n• Work experience and projects\n• Technical skills and tools\n• Education and background\n• How to contact me\n\nWhat would you like to know?`;
+        response = `Hi there! 👋 Great to meet you.\n\nI'm a portfolio guide with prepared answers about ${knowledgeBase.name}. I can tell you about:\n• Work experience and projects\n• Technical skills and tools\n• Education and background\n• How to contact me\n\nWhat would you like to know?`;
     }
     else {
         response = `Thanks for your question about "${userMessage}".\n\nYou can ask me things like:\n• \"What are your main skills?\"\n• \"Tell me about your work experience.\"\n• \"What projects have you done?\"\n• \"How can I contact you?\"\n\nOr just ask anything you're curious about related to my background.`;
@@ -506,4 +511,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Experience sliders (e.g., AITCC)
     initExperienceSliders();
 });
+
 
