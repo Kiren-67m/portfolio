@@ -117,6 +117,10 @@ section { padding:88px 0; scroll-margin-top:90px; }
 }
 .project-card { transform:translateY(12px); }
 .project-card.visible { transform:translateY(0); }
+.project-demo-link,.project-source-link { display:inline-flex; align-items:center; min-height:44px; }
+.project-demo-link { gap:7px; color:#315f8a; font-size:14px; font-weight:600; line-height:1.4; }
+.project-demo-link:hover { color:#244d74; text-decoration:underline; text-underline-offset:3px; }
+.project-demo-link:focus-visible,.project-source-link:focus-visible { outline:2px solid #7bade2; outline-offset:3px; border-radius:3px; }
 .skill-item { transform:scale(.98); }
 .skill-item.visible { transform:scale(1); }
 .skill-item:hover .skill-icon { transform:translateY(-1px); }
