@@ -368,20 +368,25 @@ const knowledgeBase = {
     projects: [
         {
             name: "Loan Portfolio Risk Monitor",
-            description: "Extended the AITCC loan default pipeline into a portfolio monitoring prototype with risk segmentation, Tableau views and Claude-generated monthly reports.",
+            description: "Loan portfolio monitoring prototype with reconciled KPIs, two interactive Tableau dashboards, and a Period 3 risk brief.",
             tech: ["Python", "scikit-learn", "XGBoost", "Tableau", "Claude API", "Machine Learning"],
-            live: "https://kiren-67m.github.io/loan-risk-monitor",
+            live: "https://kiren-67m.github.io/loan-risk-monitor/#tableau",
+            liveLabel: "Tableau dashboards",
             github: "https://github.com/Kiren-67m/loan-risk-monitor"
         },
         {
-            name: "Retail Sales SQL Analysis",
-            description: "Holiday and promotion SQL analysis for Walmart-style retail data, focusing on revenue uplift patterns.",
-            tech: ["SQL", "MySQL", "Retail Analytics"]
+            name: "Walmart Retail Sales Analysis",
+            description: "A validated MySQL pipeline feeds a two-page Power BI report on sales, department performance, and markdown coverage across three Walmart stores.",
+            tech: ["MySQL", "Power BI", "Retail Analytics"],
+            live: "https://github.com/Kiren-67m/walmart-sales-sql-analysis#store-overview",
+            liveLabel: "Power BI screenshots"
         },
         {
-            name: "Automated Ops Monitoring Pipeline",
-            description: "Python + n8n data pipeline that produces daily KPIs and anomaly flags for operational monitoring.",
-            tech: ["Python", "n8n", "ETL", "Google Sheets"]
+            name: "Ops Monitoring Pipeline",
+            description: "Python and six n8n workflows for daily KPI reports, anomaly alerts, and incident tracking from acknowledgement to resolution. The demo uses synthetic orders.",
+            tech: ["Python", "n8n", "ETL", "Incident Tracking"],
+            live: "https://github.com/Kiren-67m/automated-daily-ops-monitoring#a-real-n8n-demo-run",
+            liveLabel: "n8n workflow demo"
         },
         {
             name: "BLACKPINK Global Spotify Diffusion",
@@ -424,9 +429,9 @@ async function getAIResponse(userMessage) {
     }
     else if (lowerMessage.includes('项目') || lowerMessage.includes('project') || lowerMessage.includes('作品') || lowerMessage.includes('loan') || lowerMessage.includes('risk monitor')) {
         response = `Here are some of my key projects:\n\n${knowledgeBase.projects.map(proj => {
-            const links = [proj.live ? `Live: ${proj.live}` : null, proj.github ? `GitHub: ${proj.github}` : null].filter(Boolean).join(' · ');
+            const links = [proj.live ? `<a href="${proj.live}" target="_blank" rel="noopener noreferrer">${proj.liveLabel}</a>` : null, proj.github ? `<a href="${proj.github}" target="_blank" rel="noopener noreferrer">Source on GitHub</a>` : null].filter(Boolean).join(' · ');
             return `<strong>${proj.name}</strong>\n${proj.description}\nTech: ${proj.tech.join(', ')}${links ? `\n${links}` : ''}`;
-        }).join('\n\n')}\n\nThe Loan Portfolio Risk Monitor connects modeling, KPI summaries and AI-assisted reporting in an exploratory prototype.`;
+        }).join('\n\n')}`;
     }
     else if (lowerMessage.includes('证书') || lowerMessage.includes('certificate') || lowerMessage.includes('certification')) {
         response = `Here are my certificates:\n\n${knowledgeBase.certificates.map(cert =>
