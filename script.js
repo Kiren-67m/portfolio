@@ -4,56 +4,28 @@
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-    
-    // Update scroll progress
-    updateScrollProgress();
-    
-    // Update active nav link
-    updateActiveNavLink();
-});
+// Preserve links to sections that moved off the original home page.
+if (document.body.classList.contains('portfolio-home')) {
+    const movedSections = new Map([
+        ['#experience', 'experience.html'],
+        ['#skills', 'experience.html#skills']
+    ]);
+    const destination = movedSections.get(window.location.hash);
+    if (destination) window.location.replace(destination);
+}
 
 // Scroll progress bar
 function updateScrollProgress() {
+    navbar.classList.toggle('scrolled', window.scrollY > 24);
     const scrollProgress = document.querySelector('.scroll-progress');
     const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (window.pageYOffset / windowHeight) * 100;
+    const scrolled = windowHeight > 0 ? (window.pageYOffset / windowHeight) * 100 : 0;
     scrollProgress.style.width = scrolled + '%';
 }
-
-// Update active navigation link
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -63,27 +35,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (href === '#') return;
         const target = document.querySelector(href);
         if (target) {
-            const offsetTop = target.offsetTop - 80;
+            const offsetTop = target.offsetTop - navbar.offsetHeight;
             window.scrollTo({
                 top: offsetTop,
-                behavior: 'smooth'
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
             });
+            target.querySelector('h2[tabindex="-1"]')?.focus({ preventScroll: true });
             
-            // Close mobile menu if open
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
+            setMenuOpen(false);
         }
     });
 });
 
 // Mobile menu toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+function setMenuOpen(open) {
+    navMenu.classList.toggle('active', open);
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+}
 
 hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
+    setMenuOpen(!navMenu.classList.contains('active'));
+});
+
+navMenu.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenuOpen(false);
+});
+
+navbar.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+        setMenuOpen(false);
+        hamburger.focus();
+    }
 });
 
 // ============================================
@@ -162,7 +145,6 @@ const chatInput = document.getElementById('chatInput');
 const chatSend = document.getElementById('chatSend');
 const chatMessages = document.getElementById('chatMessages');
 const quickQuestions = document.querySelectorAll('.quick-question');
-const chatTriggerNav = document.querySelector('.chat-trigger-nav');
 
 // Open chat panel
 function openChat() {
@@ -183,10 +165,6 @@ function closeChat() {
 
 // Event listeners
 chatButton.addEventListener('click', openChat);
-chatTriggerNav.addEventListener('click', (e) => {
-    e.preventDefault();
-    openChat();
-});
 chatClose.addEventListener('click', closeChat);
 chatBack.addEventListener('click', closeChat);
 chatOverlay.addEventListener('click', closeChat);
