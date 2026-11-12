@@ -6,4 +6,4 @@ Interactive portfolio for Qiming (Kiren) Liu, covering AI engineering, data anal
 
 GitHub Pages serves the compiled site from this branch. The React, TypeScript, and Vite project and local build instructions are on the [source branch](https://github.com/Kiren-67m/portfolio/tree/source).
 
-The portfolio adapts [Moncy Yohannan’s template](https://github.com/MoncyDev/Portfolio-Website) under the [MIT License](LICENSE).
+This site adapts [Moncy Yohannan’s 2025 portfolio template](https://github.com/MoncyDev/Portfolio-Website/tree/be3da254d7f81541885fae10311c258fe73b49a8). That revision was released under the [MIT License](LICENSE).
