@@ -1,0 +1,106 @@
+.section-container {
+  width: 1300px;
+}
+.title,
+.para {
+  font-kerning: none;
+  -webkit-text-rendering: optimizeSpeed;
+  text-rendering: optimizeSpeed;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@media only screen and (max-width: 1600px) {
+  .section-container {
+    width: 1200px;
+    max-width: calc(100% - 160px);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .section-container {
+    width: 900px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .section-container {
+    width: 500px;
+    max-width: var(--cWidth);
+  }
+}
+.portfolio-route-enter {
+  animation: portfolio-route-enter 420ms ease-out;
+}
+
+@keyframes portfolio-route-enter {
+  from { opacity: .62; }
+  to { opacity: 1; }
+}
+
+html[data-portfolio-transition] {
+  --portfolio-transition-duration: 620ms;
+  --portfolio-transition-easing: cubic-bezier(.22, .75, .25, 1);
+  --portfolio-slide: 32px;
+}
+
+html[data-portfolio-shared="section"] {
+  --portfolio-transition-duration: 560ms;
+  --portfolio-slide: 22px;
+}
+
+html[data-portfolio-transition="back"] {
+  --portfolio-slide: -32px;
+}
+
+html[data-portfolio-transition="back"][data-portfolio-shared="section"] {
+  --portfolio-slide: -22px;
+}
+
+html[data-portfolio-shared] .header {
+  view-transition-name: portfolio-header;
+}
+
+html[data-portfolio-shared="title"] .landing-intro h1,
+html[data-portfolio-shared="title"] .portfolio-pages[data-page="Profile"] .portfolio-heading h1 {
+  view-transition-name: portfolio-title;
+}
+
+html[data-portfolio-transition]::view-transition {
+  background: var(--backgroundColor);
+}
+
+html[data-portfolio-transition]::view-transition-group(root),
+html[data-portfolio-transition]::view-transition-group(portfolio-header),
+html[data-portfolio-transition]::view-transition-group(portfolio-title) {
+  animation-duration: var(--portfolio-transition-duration);
+  animation-timing-function: var(--portfolio-transition-easing);
+}
+
+html[data-portfolio-transition]::view-transition-old(root) {
+  animation: portfolio-slide-out var(--portfolio-transition-duration) var(--portfolio-transition-easing) both;
+}
+
+html[data-portfolio-transition]::view-transition-new(root) {
+  animation: portfolio-slide-in var(--portfolio-transition-duration) var(--portfolio-transition-easing) both;
+}
+
+html[data-portfolio-transition]::view-transition-old(portfolio-title),
+html[data-portfolio-transition]::view-transition-new(portfolio-title) {
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@keyframes portfolio-slide-out {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(calc(-1 * var(--portfolio-slide))); }
+}
+
+@keyframes portfolio-slide-in {
+  from { opacity: 0; transform: translateX(var(--portfolio-slide)); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-route-enter {
+    animation: none;
+  }
+}

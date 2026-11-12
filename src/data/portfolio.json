@@ -1,0 +1,297 @@
+{
+  "intro": [
+    "I work across AI engineering and data analytics, with a focus on turning complex workflows into reliable systems. I'm currently an AI Engineering Intern at OriLoan Financial Inc.",
+    "I work end to end: cleaning the data, modeling the problem, and shipping it as something measurable and dependable. I learn fastest by building, validating against ground truth, and iterating on what the results reveal.",
+    "I'm currently open to internship and full-time opportunities where execution and continuous improvement matter."
+  ],
+  "photos": [
+    {
+      "src": "/images/portfolio/portrait.jpg",
+      "alt": "Professional portrait of Qiming Liu",
+      "category": "Professional"
+    },
+    {
+      "src": "/images/portfolio/snowboarding.jpg",
+      "alt": "Qiming Liu snowboarding",
+      "category": "Hobby"
+    },
+    {
+      "src": "/images/portfolio/event.png",
+      "alt": "Qiming Liu at a concert",
+      "category": "Concert"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Loan Portfolio Risk Monitor",
+      "description": "I reconciled loan KPIs across seven periods, built two interactive Tableau views, and wrote a Period 3 risk brief.",
+      "tags": [
+        "Python",
+        "Machine Learning",
+        "Tableau",
+        "Finance"
+      ],
+      "images": [
+        {
+          "src": "/images/projects/loan-tableau.jpg",
+          "alt": "Tableau dashboard with on-time payment and deteriorating loan trends"
+        },
+        {
+          "src": "/images/portfolio/loan-tableau-segments.jpg",
+          "alt": "Tableau portfolio risk dashboard, loan segments view"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://kiren-67m.github.io/loan-risk-monitor/#tableau",
+          "label": "View Tableau dashboards"
+        },
+        {
+          "href": "https://github.com/Kiren-67m/loan-risk-monitor",
+          "label": "GitHub repository"
+        }
+      ],
+      "highlight": "I removed 12,585 duplicate payment records across seven periods, then used the reconciled data to build two Tableau dashboards and a risk brief."
+    },
+    {
+      "title": "Walmart Retail Sales Analysis",
+      "description": "I validated a MySQL pipeline and built a two-page Power BI report comparing sales, departments, and markdown coverage across three stores.",
+      "tags": [
+        "SQL",
+        "MySQL",
+        "Retail Analytics",
+        "Power BI"
+      ],
+      "images": [
+        {
+          "src": "/images/projects/walmart-power-bi.jpg",
+          "alt": "Power BI store overview with weekly sales, store comparisons and holiday results"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://github.com/Kiren-67m/walmart-sales-sql-analysis#store-overview",
+          "label": "View Power BI screenshots"
+        }
+      ]
+    },
+    {
+      "title": "Ops Monitoring Pipeline",
+      "description": "I built a Python monitor and six n8n workflows that route daily KPIs and carry alerts from acknowledgement to resolution. The demo uses synthetic orders.",
+      "tags": [
+        "Python",
+        "n8n",
+        "ETL",
+        "Incident Tracking"
+      ],
+      "images": [
+        {
+          "src": "/images/projects/ops-n8n.jpg",
+          "alt": "n8n canvas showing how the monitor routes daily reports, alerts and duplicate runs"
+        },
+        {
+          "src": "/images/portfolio/ops-report-and-alert.png",
+          "alt": "Normal daily operations report and anomaly alert from the n8n demo"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://github.com/Kiren-67m/automated-daily-ops-monitoring#a-real-n8n-demo-run",
+          "label": "View n8n demo"
+        }
+      ],
+      "highlight": "A Python monitor and six n8n workflows flag KPI anomalies and track incidents from the first alert through resolution. The demo uses synthetic orders."
+    },
+    {
+      "title": "BLACKPINK Release Performance",
+      "description": "I built a dashboard that benchmarks JUMP’s first 28 days on Spotify and compares chart movement around tour stops.",
+      "tags": [
+        "Python",
+        "Streamlit",
+        "Spotify Data",
+        "Visualization"
+      ],
+      "images": [
+        {
+          "src": "/images/projects/blackpink-dashboard.jpg",
+          "alt": "BLACKPINK release dashboard with 28-day streaming metrics and city chart comparisons"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://kiren-67m.github.io/BLACKPINK_global_spread_project/dashboard/",
+          "label": "Dashboard"
+        },
+        {
+          "href": "https://kiren-67m.github.io/BLACKPINK_global_spread_project/?view=1",
+          "label": "English Report"
+        },
+        {
+          "href": "https://github.com/Kiren-67m/BLACKPINK_global_spread_project",
+          "label": "GitHub repository"
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "title": "Intern – AI Engineer",
+      "company": "OriLoan Financial Inc.",
+      "date": "Aug 2026 – Present",
+      "bullets": [
+        "Engineered an automated pricing ingestion and reconciliation platform covering 6 mortgage lenders across 5 heterogeneous portal architectures (REST API, replayable HTTP, ASP.NET WebForms, Blazor/SignalR, JSF), replacing manual rate sheet processing with a workflow that validated quotes against each lender’s official pricing engine.",
+        "Reverse-engineered the lender’s undocumented pricing rules into a deterministic model with no fitted parameters, raising pricing accuracy from 44.6% to 100% across 12,000 tested rate points and resolving a key blocker to launching a consumer rate product.",
+        "Implemented k-fold cross-validation across pricing scenarios and gated all 6 lenders in automated CI regression, ensuring pricing accuracy is continuously verified and protected from production regressions.",
+        "Hardened a public pricing API with rate limits for each caller, input validation and CloudWatch monitoring. Accelerated delivery by directing AI coding agents to build importers, run pricing sweeps at scale and analyze residuals."
+      ],
+      "tags": [
+        "Python",
+        "REST APIs",
+        "Cross-Validation",
+        "CI/CD",
+        "AWS"
+      ],
+      "url": "https://oriloan.com/"
+    },
+    {
+      "title": "Intern – Front Office Operations",
+      "company": "Bank of Chaoyang | Liaoning, China",
+      "date": "Feb 2025 – Mar 2025",
+      "bullets": [
+        "Identified a customer flow bottleneck through on site observation and frontline traffic monitoring, then recommended a queue redesign that streamlined lobby movement and reduced average wait times by 15% during peak hours.",
+        "Managed and triaged 50+ daily customer requests in a high volume environment, evaluated request trends by category to reveal recurring demand patterns, and informed desk level staffing allocation to strengthen coverage during busy periods.",
+        "Reviewed customer documentation and transaction records with close attention to detail, ensuring compliance with processing standards, minimizing downstream errors, and contributing to more consistent operational execution."
+      ],
+      "tags": [
+        "Performance Analysis",
+        "Process Optimization",
+        "Customer Service",
+        "Operations Management"
+      ],
+      "url": ""
+    }
+  ],
+  "skills": [
+    {
+      "title": "Programming",
+      "items": [
+        {
+          "name": "Python",
+          "level": "Advanced"
+        },
+        {
+          "name": "SQL",
+          "level": "Advanced"
+        },
+        {
+          "name": "R",
+          "level": "Advanced"
+        },
+        {
+          "name": "JavaScript",
+          "level": "Intermediate"
+        }
+      ]
+    },
+    {
+      "title": "Analytics & BI Tools",
+      "items": [
+        {
+          "name": "Excel",
+          "level": "Advanced"
+        },
+        {
+          "name": "Power BI",
+          "level": "Intermediate"
+        },
+        {
+          "name": "n8n",
+          "level": "Beginner"
+        }
+      ]
+    },
+    {
+      "title": "Statistical Tools",
+      "items": [
+        {
+          "name": "JASP",
+          "level": "Intermediate"
+        }
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "title": "Arts and Culture Committee Member",
+      "meta": "Student Union · Liaoning Normal University · Oct 2023 – May 2025",
+      "bullets": [
+        "Coordinated performer recruitment, rehearsal planning, and show-day logistics for three campus cheerleading performances, each with about 100 students.",
+        "Co-organized three welcome and graduation performances for groups of about 10, working with fellow committee members to prepare each group for the stage."
+      ]
+    },
+    {
+      "title": "Student Dance Organization Member",
+      "meta": "Dalian, China",
+      "bullets": [
+        "Led six weeks of rehearsals for a team of more than 20 dancers. The team earned third prize in a university-wide dance competition.",
+        "Broke difficult choreography into shorter drills and asked experienced dancers to coach newer teammates. Adjusted formations so dancers at different skill levels could perform together."
+      ]
+    }
+  ],
+  "honors": [
+    {
+      "title": "Dean’s List",
+      "meta": "Missouri State University · Fall 2025 and Spring 2026",
+      "description": "Recognized for academic achievement in both semesters of my first year at Missouri State in Springfield."
+    },
+    {
+      "title": "College of Business Scholarship",
+      "meta": "Missouri State University · 2026–27",
+      "description": "A donor-funded Missouri State University Foundation award for transfer students."
+    }
+  ],
+  "deanCertificates": [
+    {
+      "src": "/images/portfolio/deans-list-fall-2025.png",
+      "alt": "Fall 2025 Dean’s List certificate"
+    },
+    {
+      "src": "/images/portfolio/deans-list-spring-2026.png",
+      "alt": "Spring 2026 Dean’s List certificate"
+    }
+  ],
+  "certificate": {
+    "src": "/images/portfolio/ibm-certificate.png",
+    "alt": "IBM Data Analyst Professional Certificate awarded to Qiming Liu"
+  },
+  "competition": {
+    "title": "America's Innovate IT Collegiate Conference (AITCC) — Analyze IT Challenge | 2nd Place",
+    "meta": "Loan Default Prediction · Mar 2026",
+    "bullets": [
+      "Joined and cleaned three relational tables (70K borrowers, 180K loans, 627K payment records) in Python, handling missing values, duplicates, orphaned foreign keys, and inconsistent formatting to produce a single loan-level modeling dataset.",
+      "Engineered payment behavior features from monthly repayment records including on-time rate, delinquency rate, and cumulative delinquent days. In exploratory analysis, payment behavior showed stronger associations with default than credit score or income.",
+      "Built models for default classification and days-to-default regression, achieving an AUC of 0.96 and an R² of 0.79 in the competition evaluation. Delivered a 12-slide visual report with risk monitoring recommendations."
+    ],
+    "tags": [
+      "Python",
+      "Data Cleaning",
+      "Feature Engineering",
+      "Modeling",
+      "EDA"
+    ],
+    "images": [
+      {
+        "src": "/images/portfolio/aitcc-solo.png",
+        "alt": "AITCC - Award photo (solo)"
+      },
+      {
+        "src": "/images/portfolio/aitcc-group.png",
+        "alt": "AITCC - Team photo"
+      },
+      {
+        "src": "/images/portfolio/aitcc-medals.png",
+        "alt": "AITCC - Awards and medals"
+      }
+    ]
+  }
+}
