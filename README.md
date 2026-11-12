@@ -1,25 +1,9 @@
-# Qiming Liu — Portfolio
+# Qiming Liu — 3D Portfolio
 
-My personal website for data analytics and AI engineering projects, experience and contact information.
+[Visit the live site](https://kiren-67m.github.io/portfolio/) · [Profile](https://kiren-67m.github.io/portfolio/?view=profile) · [Projects](https://kiren-67m.github.io/portfolio/?view=projects)
 
-[View the website](https://kiren-67m.github.io/portfolio/) · [GitHub profile](https://github.com/Kiren-67m)
+Interactive portfolio for Qiming (Kiren) Liu, covering AI engineering, data analytics, and workflow automation.
 
-## Local preview
+GitHub Pages serves the compiled site from this branch. The React, TypeScript, and Vite project and local build instructions are on the [source branch](https://github.com/Kiren-67m/portfolio/tree/source).
 
-The site uses HTML, CSS and JavaScript with no build step.
-
-```bash
-python3 -m http.server 8000
-```
-
-Open `http://localhost:8000`. Fonts and some visual libraries load from CDNs.
-
-- `index.html` — page content
-- `styles.css` — base layout and styles
-- `theme.css` — light theme, typography and component refinements
-- `assets/aurora.svg` — seven-color flowing light background
-- `aurora-touch.js` — pointer-responsive light effect
-- `script.js` — navigation and the built-in question panel
-
-Project source code and methods are documented in the linked project repositories.
-
+The portfolio adapts [Moncy Yohannan’s template](https://github.com/MoncyDev/Portfolio-Website) under the [MIT License](LICENSE).
