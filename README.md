@@ -15,4 +15,4 @@ npm run preview -- --base=/portfolio/
 
 GitHub Pages serves the compiled site from the root of the `main` branch. Copy the build output over `main` when publishing a new version. Keep the existing résumé PDF and publicly linked media at their original paths. The HTML files in `public/` forward older portfolio links to their current sections.
 
-The original portfolio template is by [Moncy Yohannan](https://github.com/MoncyDev/Portfolio-Website) and is available under the [MIT License](LICENSE).
+This site adapts [Moncy Yohannan’s 2025 portfolio template](https://github.com/MoncyDev/Portfolio-Website/tree/be3da254d7f81541885fae10311c258fe73b49a8). That revision was released under the [MIT License](LICENSE).

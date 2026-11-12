@@ -72,7 +72,7 @@ const Contact = () => {
               Portfolio of <br /> <span>Qiming Liu</span>
             </h2>
             <h5>
-              <MdCopyright /> 2026 · Template by <a href="https://github.com/MoncyDev/Portfolio-Website" target="_blank" rel="noopener noreferrer">Moncy Yohannan</a>
+              <MdCopyright aria-label="Copyright" /> 2026 Qiming Liu
             </h5>
           </div>
         </div>
