@@ -1,4 +1,5 @@
 import { sitePath } from "../data/portfolioRoutes";
+import { smoother } from "./Navbar";
 import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -136,7 +137,7 @@ const TechStack = () => {
     let interval: number | undefined;
     let timeout: number | undefined;
     const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const scrollY = smoother?.scrollTop() ?? window.scrollY;
       setIsActive(scrollY > work.getBoundingClientRect().top);
     };
     const stopWatching = () => {

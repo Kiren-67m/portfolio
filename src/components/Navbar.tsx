@@ -10,6 +10,9 @@ import "./styles/Navbar.css";
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
+const desktopScroll = { smooth: 2.15, speed: 0.62 };
+const compactScroll = { smooth: 1.7, speed: 1.7 };
+
 const Navbar = () => {
   const { isLoading } = useLoading();
 
@@ -18,8 +21,7 @@ const Navbar = () => {
     const options = {
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: desktop.matches ? 2.05 : 1.7,
-      speed: desktop.matches ? 1.22 : 1.7,
+      ...(desktop.matches ? desktopScroll : compactScroll),
       effects: true,
       autoResize: true,
       ignoreMobileResize: true,
@@ -30,8 +32,15 @@ const Navbar = () => {
     currentSmoother.scrollTop(0);
     const refreshOnResize = () => ScrollSmoother.refresh(true);
     const updateScrollPace = () => {
-      options.speed = desktop.matches ? 1.22 : 1.7;
-      if (ScrollTrigger.isTouch !== 1) currentSmoother.smooth(desktop.matches ? 2.05 : 1.7);
+      if (ScrollTrigger.isTouch !== 1) {
+        const visibleOffset = currentSmoother.scrollTop();
+        const pace = desktop.matches ? desktopScroll : compactScroll;
+        options.speed = pace.speed;
+        currentSmoother.smooth(pace.smooth);
+        refreshOnResize();
+        currentSmoother.scrollTop(visibleOffset);
+        return;
+      }
       refreshOnResize();
     };
     desktop.addEventListener("change", updateScrollPace);

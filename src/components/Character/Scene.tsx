@@ -7,6 +7,7 @@ import setLighting from "./utils/lighting";
 import { useLoading } from "../../context/LoadingProvider";
 import { setCharTimeline, setAllTimeline } from "../utils/GsapScroll";
 import { setProgress } from "../Loading";
+import { smoother } from "../Navbar";
 
 const Scene = ({ onFirstFrame }: { onFirstFrame?: () => void }) => {
   const canvasDiv = useRef<HTMLDivElement>(null);
@@ -119,7 +120,7 @@ const Scene = ({ onFirstFrame }: { onFirstFrame?: () => void }) => {
       const delta = Math.min(clock.getDelta(), 0.05);
       avatar?.mixer.update(delta);
       if (avatar?.head && restHead) {
-        const nearTop = window.scrollY < 200;
+        const nearTop = (smoother?.scrollTop() ?? window.scrollY) < 200;
         look.y = THREE.MathUtils.damp(look.y, nearTop ? mouse.x * 0.46 : 0, 9, delta);
         look.x = THREE.MathUtils.damp(look.x, nearTop ? -mouse.y * 0.2 : 0, 9, delta);
         avatar.head.quaternion.copy(restHead).multiply(lookRotation.setFromEuler(look));
